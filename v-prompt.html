@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+      <title>Be My Valentine?</title>
+      <style>
+         body {
+         text-align: center;
+         font-family: Arial, sans-serif;
+         background-color: pink;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         margin: 0;
+         overflow: hidden;
+         }
+         h1 {
+         color: red;
+         font-size: 1.8em;
+         padding: 20px;
+         }
+         .buttons {
+         margin-top: 20px;
+         }
+         button {
+         font-size: 1.5em;
+         padding: 10px 20px;
+         margin: 10px;
+         cursor: pointer;
+         border: none;
+         border-radius: 5px;
+         touch-action: manipulation;
+         }
+         .yes {
+         background-color: lightgreen;
+         }
+         .no {
+         background-color: lightcoral;
+         position: absolute;
+         }
+         .page {
+         display: none;
+         width: 100vw;
+         height: 100vh;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         }
+         .active {
+         display: flex;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="page active" id="page1">
+         <h1>Hii Babae,</h1>
+         <button onclick="nextPage(2)">Next</button>
+      </div>
+      <div class="page" id="page2">
+         <h1>Kananggg kaun ba,</h1>
+         <button onclick="nextPage(3)">Next</button>
+      </div>
+      <div class="page" id="page3">
+         <h1>Naa rakoi pangutana:>>></h1>
+         <button onclick="nextPage(4)">Next</button>
+      </div>
+      <div class="page" id="page4">
+         <h1>Kanang... say tawag ani HAHAHAH</h1>
+         <button onclick="nextPage(5)">Next</button>
+      </div>
+      <div class="page" id="page5">
+         <h1>Will you be my Valentine? 💖</h1>
+         <div class="buttons">
+            <button class="yes" onclick="alert('Yay! ❤️')">Yes</button>
+            <button class="no" onmouseover="moveButton()">No</button>
+         </div>
+      </div>
+      <script>
+         function nextPage(pageNumber) {
+             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+             document.getElementById(`page${pageNumber}`).classList.add('active');
+         }
+         function moveButton() {
+             let button = document.querySelector('.no');
+             let x = Math.random() * (window.innerWidth - 100);
+             let y = Math.random() * (window.innerHeight - 50);
+             button.style.transform = `translate(${x}px, ${y}px)`;
+         }
+      </script>
+   </body>
+</html>
